@@ -1,12 +1,20 @@
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-export default function MediaCarousel({ mediaUrls = [], alt = "Post image", aspectRatio = "4/5" }) {
+export default function MediaCarousel({
+  mediaUrls,
+  images,
+  alt = "Post image",
+  altText,
+  aspectRatio = "4/5",
+}) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const urls = mediaUrls || images || [];
+  const label = altText || alt;
 
-  if (!mediaUrls || mediaUrls.length === 0) return null;
+  if (!urls || urls.length === 0) return null;
 
-  if (mediaUrls.length === 1) {
+  if (urls.length === 1) {
     return (
       <div
         style={{
@@ -19,8 +27,8 @@ export default function MediaCarousel({ mediaUrls = [], alt = "Post image", aspe
         }}
       >
         <img
-          src={mediaUrls[0]}
-          alt={alt}
+          src={urls[0]}
+          alt={label}
           loading="lazy"
           style={{
             width: "100%",
@@ -35,12 +43,12 @@ export default function MediaCarousel({ mediaUrls = [], alt = "Post image", aspe
 
   const handlePrev = (e) => {
     e.stopPropagation();
-    setCurrentIndex((prev) => (prev > 0 ? prev - 1 : mediaUrls.length - 1));
+    setCurrentIndex((prev) => (prev > 0 ? prev - 1 : urls.length - 1));
   };
 
   const handleNext = (e) => {
     e.stopPropagation();
-    setCurrentIndex((prev) => (prev < mediaUrls.length - 1 ? prev + 1 : 0));
+    setCurrentIndex((prev) => (prev < urls.length - 1 ? prev + 1 : 0));
   };
 
   return (
@@ -55,8 +63,8 @@ export default function MediaCarousel({ mediaUrls = [], alt = "Post image", aspe
       }}
     >
       <img
-        src={mediaUrls[currentIndex]}
-        alt={`${alt} (${currentIndex + 1} of ${mediaUrls.length})`}
+        src={urls[currentIndex]}
+        alt={`${label} (${currentIndex + 1} of ${urls.length})`}
         loading="lazy"
         style={{
           width: "100%",
@@ -130,7 +138,7 @@ export default function MediaCarousel({ mediaUrls = [], alt = "Post image", aspe
           backdropFilter: "blur(4px)",
         }}
       >
-        {mediaUrls.map((_, i) => (
+        {urls.map((_, i) => (
           <span
             key={i}
             style={{

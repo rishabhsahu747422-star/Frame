@@ -327,7 +327,7 @@ export default function PostDetailPage() {
             boxShadow: "0 8px 30px rgba(0,0,0,0.08)",
           }}
         >
-          <MediaCarousel images={post.images || []} altText={post.caption || "FRAME photograph"} />
+          <MediaCarousel images={post.images || post.media_urls || []} altText={post.caption || "FRAME photograph"} />
         </div>
 
         {/* Editorial Details & Social Panel */}

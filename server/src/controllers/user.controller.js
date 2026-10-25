@@ -131,7 +131,7 @@ export const getUserProfile = async (req, res, next) => {
  */
 export const searchUser = async (req, res, next) => {
   try {
-    const { query } = req.query;
+    const query = req.query.query || req.query.q;
 
     if (!query || !query.trim()) {
       return res.status(400).json({

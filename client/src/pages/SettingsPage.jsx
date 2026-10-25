@@ -79,7 +79,7 @@ export default function SettingsPage() {
         username: username.trim(),
         bio: bio.trim(),
       });
-      const updated = res.data?.user || res.user || res.data;
+      const updated = res.updatedUser || res.data?.user || res.user || res.data;
       if (updated) {
         updateUser(updated);
       }

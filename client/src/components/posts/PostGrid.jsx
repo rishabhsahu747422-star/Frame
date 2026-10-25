@@ -18,8 +18,8 @@ export default function PostGrid({ posts = [], emptyState = null }) {
       }}
     >
       {posts.map((post) => {
-        const coverUrl = post.media_urls?.[0] || "";
-        const isMultiImage = (post.media_urls || []).length > 1;
+        const coverUrl = post.media_urls?.[0] || post.images?.[0] || "";
+        const isMultiImage = (post.media_urls || post.images || []).length > 1;
 
         return (
           <Link

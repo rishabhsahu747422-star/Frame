@@ -534,9 +534,9 @@ export default function ProfilePage() {
                     textDecoration: "none",
                   }}
                 >
-                  {r.videoUrl ? (
+                  {(r.media_url || r.videoUrl) ? (
                     <video
-                      src={r.videoUrl}
+                      src={r.media_url || r.videoUrl}
                       style={{ width: "100%", height: "100%", objectFit: "cover" }}
                       muted
                       preload="metadata"

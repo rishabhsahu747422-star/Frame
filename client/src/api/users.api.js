@@ -4,11 +4,16 @@ export const usersApi = {
   getMe: () =>
     apiRequest("/api/users/me"),
 
-  updateProfile: (data) =>
-    apiRequest("/api/users/update-profile", {
+  updateProfile: (data) => {
+    const payload = { ...data };
+    if (payload.name && !payload.fullName) {
+      payload.fullName = payload.name;
+    }
+    return apiRequest("/api/users/update-profile", {
       method: "PATCH",
-      body: data,
-    }),
+      body: payload,
+    });
+  },
 
   updateProfilePicture: (file) => {
     const formData = new FormData();

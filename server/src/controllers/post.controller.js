@@ -21,10 +21,25 @@ const formatPost = (postDoc, currentUserId = null, currentUserSaves = []) => {
     ? currentUserSaves.some((id) => (id._id || id).toString() === post._id.toString())
     : false;
 
+  const images = post.media_urls || post.images || [];
+  const userObj = post.user || post.author || null;
+  const author = userObj
+    ? {
+        ...userObj,
+        name: userObj.fullName || userObj.name || userObj.username,
+      }
+    : null;
+
   return {
     ...post,
+    images,
+    media_urls: images,
+    user: author,
+    author,
     likeCount: (post.likes || []).length,
+    likesCount: (post.likes || []).length,
     commentCount: (post.comments || []).length,
+    commentsCount: (post.comments || []).length,
     isLiked,
     isSaved,
   };

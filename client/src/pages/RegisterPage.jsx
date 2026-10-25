@@ -27,8 +27,8 @@ export default function RegisterPage() {
       setError("Username must be at least 3 characters long.");
       return;
     }
-    if (password.length < 6) {
-      setError("Password must be at least 6 characters long.");
+    if (password.length < 8) {
+      setError("Password must be at least 8 characters long.");
       return;
     }
 
@@ -36,6 +36,7 @@ export default function RegisterPage() {
 
     try {
       await register({
+        fullName: name.trim(),
         name: name.trim(),
         username: username.trim().toLowerCase(),
         email: email.trim().toLowerCase(),
@@ -231,7 +232,7 @@ export default function RegisterPage() {
                 color: "var(--color-text)",
               }}
             >
-              Password (6+ characters)
+              Password (8+ characters)
             </label>
             <div style={{ position: "relative" }}>
               <input
