@@ -41,7 +41,8 @@ export function AuthProvider({ children }) {
   const login = async (credentials) => {
     const res = await authApi.login(credentials);
     if (res?.data) {
-      // Refresh full profile including counters
+      setUser(res.data);
+      // Refresh full profile including counters in background/await
       return await fetchCurrentUser();
     }
     return res;
@@ -50,6 +51,7 @@ export function AuthProvider({ children }) {
   const register = async (formData) => {
     const res = await authApi.register(formData);
     if (res?.data) {
+      setUser(res.data);
       return await fetchCurrentUser();
     }
     return res;

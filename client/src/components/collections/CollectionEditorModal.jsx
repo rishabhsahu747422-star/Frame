@@ -10,6 +10,7 @@ export default function CollectionEditorModal({
   onClose,
   initialData = null,
   onSaved,
+  onSuccess,
 }) {
   const { showToast } = useToast();
 
@@ -41,7 +42,8 @@ export default function CollectionEditorModal({
         showToast("Collection created", "success");
       }
 
-      if (onSaved) onSaved(res?.data);
+      const callback = onSaved || onSuccess;
+      if (callback) callback(res?.data || res);
       onClose();
     } catch (err) {
       showToast(err.message || "Failed to save collection", "error");
@@ -97,6 +99,7 @@ export default function CollectionEditorModal({
 
         <form onSubmit={handleSubmit}>
           <InputField
+            id="collection-title"
             label="Collection Title"
             placeholder="e.g. Modernist Geometries"
             value={title}
@@ -106,6 +109,7 @@ export default function CollectionEditorModal({
           />
 
           <InputField
+            id="collection-desc"
             label="Description (Optional)"
             placeholder="Describe the editorial mood or theme..."
             value={description}

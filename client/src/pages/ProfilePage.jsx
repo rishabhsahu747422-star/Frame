@@ -60,7 +60,7 @@ export default function ProfilePage() {
       .getUserProfile(username)
       .then((res) => {
         if (!isMounted) return;
-        const u = res.data?.user || res.data;
+        const u = res.user || res.data?.user || res.data;
         if (!u) {
           setError("Creator profile not found");
           return;
