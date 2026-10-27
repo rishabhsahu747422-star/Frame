@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 36" fill="none">
-  <!-- FRAME Primary Brand Logo (Symbol + Wordmark) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 72" fill="none">
+  <!-- FRAME Official Primary Logo (Symbol + Geometric Wordmark + Tagline) -->
   <defs>
     <linearGradient id="logo-cyan" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#16DCEB" />
@@ -7,83 +7,69 @@
     </linearGradient>
   </defs>
 
-  <!-- Viewfinder Symbol -->
-  <g transform="translate(0, 0)">
-    <!-- Brackets -->
+  <!-- Left Symbol (Viewfinder Aperture Symbol) -->
+  <g transform="translate(2, 2) scale(0.68)">
+    <!-- Top-Left Outer Frame -->
     <path
-      d="M 4 12.5 V 6.5 C 4 5.12 5.12 4 6.5 4 H 12.5"
-      stroke="#F2F2F2"
-      stroke-width="2.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-    <path
-      d="M 23.5 4 H 29.5 C 30.88 4 32 5.12 32 6.5 V 12.5"
-      stroke="url(#logo-cyan)"
-      stroke-width="2.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-    <path
-      d="M 32 23.5 V 29.5 C 32 30.88 30.88 32 29.5 32 H 23.5"
-      stroke="#F2F2F2"
-      stroke-width="2.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-    <path
-      d="M 12.5 32 H 6.5 C 5.12 32 4 30.88 4 29.5 V 23.5"
-      stroke="#F2F2F2"
-      stroke-width="2.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      d="M 21.5 6 H 82 C 88 6 92.7 10.7 92.7 16.5 V 21.5 H 81.5 L 81.5 21 C 81.5 18.5 79.5 16.5 77 16.5 H 24.5 C 20.1 16.5 16.5 20.1 16.5 24.5 V 78.5 C 16.5 82.9 20.1 86.5 24.5 86.5 H 27.2 V 94 H 21.5 C 13.5 94 7 87.5 7 79.5 V 20.5 C 7 12.5 13.5 6 21.5 6 Z"
+      fill="url(#logo-cyan)"
     />
 
-    <!-- Lens Ring -->
+    <!-- Inner "F" Aperture Arm & Stem -->
+    <path
+      d="M 44 32 H 75.5 L 67.5 41 H 47 C 45 41 43.5 42.5 43.5 44.5 V 76 L 34.5 85 V 43.5 C 34.5 37 38.5 32 44 32 Z"
+      fill="url(#logo-cyan)"
+    />
+
+    <!-- Bottom-Right Outer Frame -->
+    <path
+      d="M 91.5 37 L 82.5 45 V 77 C 82.5 81.5 79 84.5 75 84.5 H 57.5 L 49.5 94 H 78.5 C 86.5 94 93 87.5 93 79.5 V 39 C 93 38.2 92.3 37.4 91.5 37 Z"
+      fill="url(#logo-cyan)"
+    />
+
+    <!-- Central Focal Aperture Dot -->
     <circle
-      cx="18"
-      cy="18"
-      r="8"
-      stroke="#F2F2F2"
-      stroke-width="1.75"
-      stroke-opacity="0.85"
-    />
-
-    <!-- Aperture Blades -->
-    <g stroke="#F2F2F2" stroke-width="1.25" stroke-linecap="round" opacity="0.6">
-      <line x1="18" y1="10" x2="21.5" y2="16.5" />
-      <line x1="24.9" y1="14" x2="21.5" y2="19.5" />
-      <line x1="24.9" y1="22" x2="18" y2="21" />
-      <line x1="18" y1="26" x2="14.5" y2="19.5" />
-      <line x1="11.1" y1="22" x2="14.5" y2="16.5" />
-      <line x1="11.1" y1="14" x2="18" y2="15" />
-    </g>
-
-    <!-- Focal Sensor -->
-    <circle
-      cx="18"
-      cy="18"
-      r="3"
+      cx="58"
+      cy="55.5"
+      r="5.2"
       fill="url(#logo-cyan)"
     />
   </g>
 
-  <!-- Typography Wordmark: FRAME -->
-  <!-- Geometric F -->
-  <path d="M 48 9 H 60 M 48 18 H 57 M 48 9 V 27" stroke="#F2F2F2" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
-  
-  <!-- Geometric R -->
-  <path d="M 68 9 H 76 C 78.5 9 80 10.5 80 13.5 C 80 16.5 78.5 18 76 18 H 68 M 68 9 V 27 M 75 18 L 81 27" stroke="#F2F2F2" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+  <!-- Wordmark: F R Λ M E in Pure Vector Paths -->
+  <g fill="#F2F2F2" transform="translate(86, 12)">
+    <!-- F -->
+    <path d="M 0 0 H 22 V 4.5 H 4.5 V 12 H 19 V 16.5 H 4.5 V 28 H 0 Z" />
 
-  <!-- Geometric A -->
-  <path d="M 94 9 L 88 27 M 94 9 L 100 27 M 90 22 H 98" stroke="#F2F2F2" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+    <!-- R -->
+    <path
+      d="M 44 0 H 58.5 C 63.5 0 67.5 3 67.5 8.5 C 67.5 12.5 64.5 15.5 60.5 16 L 68 28 H 62.5 L 55.5 16.5 H 48.5 V 28 H 44 Z M 48.5 4.5 V 12 H 58 C 60.5 12 62.5 10.5 62.5 8.2 C 62.5 6 60.5 4.5 58 4.5 Z"
+    />
 
-  <!-- Geometric M -->
-  <path d="M 108 27 V 9 L 115 19 L 122 9 V 27" stroke="#F2F2F2" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+    <!-- A (Geometric Chevron without crossbar) -->
+    <path d="M 100.5 0 L 113 28 H 107.5 L 100.5 11 L 93.5 28 H 88 Z" />
 
-  <!-- Geometric E -->
-  <path d="M 141 9 H 130 V 27 H 141 M 130 18 H 138" stroke="#F2F2F2" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+    <!-- M -->
+    <path
+      d="M 134 0 H 138.8 L 147 18 L 155.2 0 H 160 V 28 H 155.5 V 8.5 L 148.2 24.5 H 145.8 L 138.5 8.5 V 28 H 134 Z"
+    />
 
-  <!-- Cyan Focus Accent Dot -->
-  <circle cx="151" cy="25" r="2.2" fill="url(#logo-cyan)" />
+    <!-- E -->
+    <path d="M 183 0 H 205 V 4.5 H 187.5 V 12 H 201.5 V 16.5 H 187.5 V 23.5 H 205 V 28 H 183 Z" />
+  </g>
+
+  <!-- Tagline: CAPTURE / CREATE / CONNECT -->
+  <g transform="translate(86, 56)">
+    <text
+      x="0"
+      y="0"
+      font-family="'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+      font-size="8.5"
+      font-weight="600"
+      letter-spacing="0.22em"
+      fill="#A3A3A3"
+    >
+      CAPTURE <tspan fill="url(#logo-cyan)" font-weight="700"> / </tspan> CREATE <tspan fill="url(#logo-cyan)" font-weight="700"> / </tspan> CONNECT
+    </text>
+  </g>
 </svg>

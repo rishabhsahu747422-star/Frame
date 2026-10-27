@@ -78,7 +78,7 @@ export default function RegisterPage() {
         {/* Brand Header */}
         <div style={{ textAlign: "center", marginBottom: "2rem" }}>
           <div style={{ display: "flex", justifyContent: "center", marginBottom: "0.85rem" }}>
-            <Logo variant="full" size="lg" linkTo="/" />
+            <Logo variant="full" size="lg" subtitle="CAPTURE / CREATE / CONNECT" linkTo="/" />
           </div>
           <p style={{ color: "var(--color-text-secondary)", fontSize: "0.95rem" }}>
             Join the community of photographers and visual curators
