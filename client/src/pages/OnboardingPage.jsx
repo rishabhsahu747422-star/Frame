@@ -6,6 +6,7 @@ import { useAuth } from "../context/AuthContext.jsx";
 import { useToast } from "../context/ToastContext.jsx";
 import Avatar from "../components/common/Avatar.jsx";
 import Button from "../components/common/Button.jsx";
+import Logo from "../components/common/Logo.jsx";
 
 export default function OnboardingPage() {
   const navigate = useNavigate();
@@ -70,20 +71,8 @@ export default function OnboardingPage() {
         }}
       >
         <div style={{ textAlign: "center", marginBottom: "2.5rem" }}>
-          <div
-            style={{
-              width: "56px",
-              height: "56px",
-              borderRadius: "9999px",
-              background: "var(--color-accent-soft)",
-              color: "var(--color-accent)",
-              display: "inline-flex",
-              alignItems: "center",
-              justifyContent: "center",
-              marginBottom: "1rem",
-            }}
-          >
-            <Sparkles size={28} />
+          <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.25rem" }}>
+            <Logo variant="icon" size="xl" />
           </div>
           <h1
             style={{

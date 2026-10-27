@@ -16,6 +16,7 @@ import { useAuth } from "../../context/AuthContext.jsx";
 import { notificationsApi } from "../../api/notifications.api.js";
 import Avatar from "../common/Avatar.jsx";
 import ThemeToggle from "../common/ThemeToggle.jsx";
+import Logo from "../common/Logo.jsx";
 
 export default function Sidebar() {
   const { user, logout } = useAuth();
@@ -91,33 +92,7 @@ export default function Sidebar() {
       <div>
         {/* Brand header */}
         <div style={{ padding: "0 12px 28px 12px" }}>
-          <NavLink to="/home" style={{ display: "inline-block" }}>
-            <h1
-              style={{
-                fontFamily: "var(--font-display)",
-                fontSize: "1.5rem",
-                fontWeight: 700,
-                letterSpacing: "0.18em",
-                color: "var(--text-primary)",
-                lineHeight: 1,
-              }}
-            >
-              FRAME
-            </h1>
-            <span
-              style={{
-                display: "block",
-                fontFamily: "var(--font-display)",
-                fontSize: "0.625rem",
-                letterSpacing: "0.14em",
-                textTransform: "uppercase",
-                color: "var(--text-secondary)",
-                marginTop: "4px",
-              }}
-            >
-              Editorial Photography
-            </span>
-          </NavLink>
+          <Logo variant="full" size="md" subtitle="Editorial Photography" linkTo="/home" />
         </div>
 
         {/* Navigation list */}

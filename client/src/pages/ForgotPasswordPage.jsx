@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, Mail, AlertCircle, CheckCircle2 } from "lucide-react";
 import { authApi } from "../api/auth.api.js";
 import Button from "../components/common/Button.jsx";
+import Logo from "../components/common/Logo.jsx";
 
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState("");
@@ -66,6 +67,9 @@ export default function ForgotPasswordPage() {
         </div>
 
         <div style={{ textAlign: "center", marginBottom: "2rem" }}>
+          <div style={{ display: "flex", justifyContent: "center", marginBottom: "1rem" }}>
+            <Logo variant="icon" size="lg" linkTo="/" />
+          </div>
           <h1
             style={{
               fontFamily: "var(--font-display)",

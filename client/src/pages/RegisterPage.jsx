@@ -4,6 +4,7 @@ import { Eye, EyeOff, AlertCircle, ArrowRight, CheckCircle2 } from "lucide-react
 import { useAuth } from "../context/AuthContext.jsx";
 import { useToast } from "../context/ToastContext.jsx";
 import Button from "../components/common/Button.jsx";
+import Logo from "../components/common/Logo.jsx";
 
 export default function RegisterPage() {
   const navigate = useNavigate();
@@ -76,21 +77,9 @@ export default function RegisterPage() {
       >
         {/* Brand Header */}
         <div style={{ textAlign: "center", marginBottom: "2rem" }}>
-          <Link
-            to="/"
-            style={{
-              fontFamily: "var(--font-display)",
-              fontSize: "2rem",
-              fontWeight: "800",
-              letterSpacing: "0.15em",
-              color: "var(--color-text)",
-              textDecoration: "none",
-              display: "inline-block",
-              marginBottom: "0.5rem",
-            }}
-          >
-            FRAME
-          </Link>
+          <div style={{ display: "flex", justifyContent: "center", marginBottom: "0.85rem" }}>
+            <Logo variant="full" size="lg" linkTo="/" />
+          </div>
           <p style={{ color: "var(--color-text-secondary)", fontSize: "0.95rem" }}>
             Join the community of photographers and visual curators
           </p>

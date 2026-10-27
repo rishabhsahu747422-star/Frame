@@ -4,6 +4,7 @@ import { Search, Bell, Sun, Moon } from "lucide-react";
 import { useAuth } from "../../context/AuthContext.jsx";
 import { useTheme } from "../../context/ThemeContext.jsx";
 import Avatar from "../common/Avatar.jsx";
+import Logo from "../common/Logo.jsx";
 
 export default function TopBar() {
   const { user } = useAuth();
@@ -26,19 +27,7 @@ export default function TopBar() {
         zIndex: 50,
       }}
     >
-      <Link to="/home" style={{ display: "flex", alignItems: "baseline", gap: "6px" }}>
-        <span
-          style={{
-            fontFamily: "var(--font-display)",
-            fontSize: "1.25rem",
-            fontWeight: 700,
-            letterSpacing: "0.16em",
-            color: "var(--text-primary)",
-          }}
-        >
-          FRAME
-        </span>
-      </Link>
+      <Logo variant="compact" size="sm" linkTo="/home" />
 
       <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
         <button

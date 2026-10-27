@@ -2,6 +2,7 @@ import React from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext.jsx";
 import Skeleton from "../common/Skeleton.jsx";
+import Logo from "../common/Logo.jsx";
 
 export function ProtectedRoute({ children }) {
   const { user, loading, isAuthenticated } = useAuth();
@@ -21,17 +22,9 @@ export function ProtectedRoute({ children }) {
         }}
       >
         <div style={{ textAlign: "center", width: "260px" }}>
-          <h2
-            style={{
-              fontFamily: "var(--font-display)",
-              fontSize: "1.75rem",
-              letterSpacing: "0.15em",
-              marginBottom: "16px",
-              color: "var(--text-primary)",
-            }}
-          >
-            FRAME
-          </h2>
+          <div style={{ display: "flex", justifyContent: "center", marginBottom: "20px" }}>
+            <Logo variant="full" size="lg" animated />
+          </div>
           <Skeleton height="3px" borderRadius="var(--radius-full)" />
         </div>
       </div>
