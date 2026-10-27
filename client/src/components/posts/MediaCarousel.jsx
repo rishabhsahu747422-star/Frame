@@ -84,19 +84,19 @@ export default function MediaCarousel({
           left: "12px",
           top: "50%",
           transform: "translateY(-50%)",
-          backgroundColor: "rgba(0, 0, 0, 0.5)",
-          color: "#FFFFFF",
+          backgroundColor: "rgba(9, 9, 9, 0.75)",
+          color: "var(--text-primary)",
+          border: "1px solid var(--subtle-border)",
           width: "32px",
           height: "32px",
           borderRadius: "var(--radius-full)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          backdropFilter: "blur(4px)",
           transition: "background-color var(--transition-fast)",
         }}
       >
-        <ChevronLeft size={20} />
+        <ChevronLeft size={18} />
       </button>
 
       <button
@@ -107,19 +107,19 @@ export default function MediaCarousel({
           right: "12px",
           top: "50%",
           transform: "translateY(-50%)",
-          backgroundColor: "rgba(0, 0, 0, 0.5)",
-          color: "#FFFFFF",
+          backgroundColor: "rgba(9, 9, 9, 0.75)",
+          color: "var(--text-primary)",
+          border: "1px solid var(--subtle-border)",
           width: "32px",
           height: "32px",
           borderRadius: "var(--radius-full)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          backdropFilter: "blur(4px)",
           transition: "background-color var(--transition-fast)",
         }}
       >
-        <ChevronRight size={20} />
+        <ChevronRight size={18} />
       </button>
 
       {/* Pagination dots & counter */}
@@ -133,19 +133,19 @@ export default function MediaCarousel({
           alignItems: "center",
           gap: "6px",
           padding: "4px 8px",
-          backgroundColor: "rgba(0, 0, 0, 0.4)",
+          backgroundColor: "rgba(9, 9, 9, 0.75)",
+          border: "1px solid var(--subtle-border)",
           borderRadius: "var(--radius-full)",
-          backdropFilter: "blur(4px)",
         }}
       >
         {urls.map((_, i) => (
           <span
             key={i}
             style={{
-              width: i === currentIndex ? "16px" : "6px",
-              height: "6px",
+              width: i === currentIndex ? "14px" : "5px",
+              height: "5px",
               borderRadius: "var(--radius-full)",
-              backgroundColor: i === currentIndex ? "#FFFFFF" : "rgba(255, 255, 255, 0.4)",
+              backgroundColor: i === currentIndex ? "var(--brand-accent)" : "var(--border-strong)",
               transition: "all var(--transition-fast)",
             }}
           />

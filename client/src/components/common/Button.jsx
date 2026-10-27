@@ -16,30 +16,33 @@ export default function Button({
   className = "",
   ...props
 }) {
+  const [isHovered, setIsHovered] = React.useState(false);
+
   const getVariantStyles = () => {
     switch (variant) {
       case "primary":
         return {
-          backgroundColor: "var(--brand-accent)",
-          color: "#FFFFFF",
+          backgroundColor: isHovered && !isDisabled ? "var(--brand-accent-hover)" : "var(--brand-accent)",
+          color: "var(--brand-accent-text)",
+          fontWeight: 600,
           border: "1px solid transparent",
         };
       case "secondary":
         return {
-          backgroundColor: "var(--muted-surface)",
+          backgroundColor: isHovered && !isDisabled ? "var(--bg-surface-hover)" : "var(--bg-surface-secondary)",
           color: "var(--text-primary)",
-          border: "1px solid var(--subtle-border)",
+          border: `1px solid ${isHovered && !isDisabled ? "var(--border-strong)" : "var(--subtle-border)"}`,
         };
       case "outline":
         return {
-          backgroundColor: "transparent",
+          backgroundColor: isHovered && !isDisabled ? "var(--bg-surface-secondary)" : "transparent",
           color: "var(--text-primary)",
-          border: "1px solid var(--subtle-border)",
+          border: `1px solid ${isHovered && !isDisabled ? "var(--border-strong)" : "var(--subtle-border)"}`,
         };
       case "ghost":
         return {
-          backgroundColor: "transparent",
-          color: "var(--text-primary)",
+          backgroundColor: isHovered && !isDisabled ? "var(--bg-surface-hover)" : "transparent",
+          color: isHovered && !isDisabled ? "var(--text-primary)" : "var(--text-secondary)",
           border: "1px solid transparent",
         };
       case "danger":
@@ -87,6 +90,14 @@ export default function Button({
       type={type}
       disabled={isDisabled}
       onClick={onClick}
+      onMouseEnter={(e) => {
+        setIsHovered(true);
+        props.onMouseEnter?.(e);
+      }}
+      onMouseLeave={(e) => {
+        setIsHovered(false);
+        props.onMouseLeave?.(e);
+      }}
       className={`btn-component ${className}`}
       style={{
         display: "inline-flex",

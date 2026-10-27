@@ -136,30 +136,29 @@ export default function ExplorePage() {
                     style={{
                       position: "absolute",
                       inset: 0,
-                      backgroundColor: "rgba(0, 0, 0, 0.45)",
+                      backgroundColor: "rgba(9, 9, 9, 0.65)",
                       display: "flex",
                       flexDirection: "column",
                       justifyContent: "space-between",
                       padding: "14px",
-                      color: "#FFFFFF",
+                      color: "var(--text-primary)",
                       opacity: 0,
                       transition: "opacity var(--transition-fast)",
-                      backdropFilter: "blur(2px)",
                     }}
                     onMouseEnter={(e) => (e.currentTarget.style.opacity = 1)}
                     onMouseLeave={(e) => (e.currentTarget.style.opacity = 0)}
                   >
-                    <span style={{ fontSize: "0.75rem", fontWeight: 600 }}>
+                    <span style={{ fontSize: "0.75rem", fontWeight: 600, color: "var(--text-primary)" }}>
                       @{post.user?.username || "creator"}
                     </span>
 
                     <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-                      <div style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "0.8125rem", fontWeight: 600 }}>
-                        <Heart size={16} fill="#FFFFFF" />
+                      <div style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "0.8125rem", fontWeight: 600, color: "var(--text-primary)" }}>
+                        <Heart size={16} fill="var(--brand-accent)" color="var(--brand-accent)" />
                         <span>{post.likeCount || 0}</span>
                       </div>
-                      <div style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "0.8125rem", fontWeight: 600 }}>
-                        <MessageCircle size={16} fill="#FFFFFF" />
+                      <div style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "0.8125rem", fontWeight: 600, color: "var(--text-primary)" }}>
+                        <MessageCircle size={16} color="var(--text-primary)" />
                         <span>{post.commentCount || 0}</span>
                       </div>
                     </div>

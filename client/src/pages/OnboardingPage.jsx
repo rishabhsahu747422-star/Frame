@@ -66,7 +66,7 @@ export default function OnboardingPage() {
           border: "1px solid var(--color-border)",
           borderRadius: "var(--radius-lg)",
           padding: "3rem 2.5rem",
-          boxShadow: "0 8px 30px rgba(0, 0, 0, 0.04)",
+          boxShadow: "0 16px 40px rgba(0, 0, 0, 0.35)",
         }}
       >
         <div style={{ textAlign: "center", marginBottom: "2.5rem" }}>

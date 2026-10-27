@@ -1,8 +1,11 @@
 /* ==========================================================================
-   FRAME DESIGN SYSTEM — Editorial Meets Social Photography
+   FRAME DESIGN SYSTEM — Premium Social Photography Platform
+   Dark Charcoal Interface, Crisp Borders, and Bright Cyan Accents
    ========================================================================== */
 
-:root {
+:root,
+[data-theme="dark"],
+[data-theme="light"] {
   /* Typography */
   --font-display: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -20,9 +23,9 @@
   /* Border Radii - Restrained and intentional */
   --radius-xs: 2px;
   --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
   --radius-full: 9999px;
 
   /* Transitions */
@@ -30,11 +33,11 @@
   --transition-normal: 220ms cubic-bezier(0.16, 1, 0.3, 1);
   --transition-slow: 350ms cubic-bezier(0.16, 1, 0.3, 1);
 
-  /* Shadows - Subtle and architectural */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.08);
-  --shadow-overlay: 0 24px 48px -12px rgba(0, 0, 0, 0.18);
+  /* Shadows - Restrained, architectural layering */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.6);
+  --shadow-overlay: 0 24px 48px -12px rgba(0, 0, 0, 0.85);
 
   /* Layout dimensions */
   --sidebar-width: 250px;
@@ -44,71 +47,54 @@
   --page-max-width: 1280px;
   --topbar-height: 60px;
   --mobilenav-height: 56px;
-}
 
-/* --------------------------------------------------------------------------
-   Light Theme (Default)
-   -------------------------------------------------------------------------- */
-:root,
-[data-theme="light"] {
-  --bg-main: #F7F6F2;
-  --bg-surface: #FFFFFF;
-  --text-primary: #191919;
-  --text-secondary: #777777;
-  --text-muted: #999999;
-  --brand-accent: #6558D3;
-  --brand-accent-hover: #5345C4;
-  --subtle-border: #E5E1D9;
-  --border-hover: #D0CCC2;
-  --muted-surface: #F0EEE8;
-  --soft-accent-surface: #EFECFF;
+  /* Core Design Tokens */
+  --bg-main: #090909;
+  --bg-surface: #111111;
+  --bg-surface-secondary: #191919;
+  --bg-surface-elevated: #222222;
+  --bg-surface-hover: #292929;
+  --muted-surface: #191919;
+  --soft-accent-surface: rgba(22, 220, 235, 0.08);
+
+  /* Typography & text colors */
+  --text-primary: #F2F2F2;
+  --text-secondary: #A3A3A3;
+  --text-muted: #777777;
+
+  /* Borders */
+  --subtle-border: #303030;
+  --border-strong: #404040;
+  --border-hover: #404040;
+
+  /* Primary Accent & Hover */
+  --brand-accent: #16DCEB;
+  --brand-accent-hover: #42E5F0;
+  --brand-accent-text: #061112;
+
+  /* Status / Feedback */
   --danger: #E5484D;
-  --danger-surface: #FFEAEB;
+  --danger-surface: rgba(229, 72, 77, 0.12);
   --success: #30A46C;
-  --overlay-bg: rgba(25, 25, 25, 0.65);
-  --skeleton-base: #E8E4DC;
-  --skeleton-highlight: #F5F3ED;
+  --success-surface: rgba(48, 164, 108, 0.12);
+  --overlay-bg: rgba(0, 0, 0, 0.85);
+  --skeleton-base: #141414;
+  --skeleton-highlight: #222222;
 
-  /* Aliases */
+  /* Universal Compatibility Aliases */
   --color-bg: var(--bg-main);
   --color-surface: var(--bg-surface);
+  --color-surface-secondary: var(--bg-surface-secondary);
+  --color-surface-elevated: var(--bg-surface-elevated);
+  --color-surface-hover: var(--bg-surface-hover);
   --color-text: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
   --color-accent: var(--brand-accent);
+  --color-accent-hover: var(--brand-accent-hover);
   --color-accent-soft: var(--soft-accent-surface);
   --color-border: var(--subtle-border);
-}
-
-/* --------------------------------------------------------------------------
-   Dark Theme
-   -------------------------------------------------------------------------- */
-[data-theme="dark"] {
-  --bg-main: #15151A;
-  --bg-surface: #232329;
-  --text-primary: #F5F4F1;
-  --text-secondary: #AAA9B2;
-  --text-muted: #6E6D7A;
-  --brand-accent: #B5A9FF;
-  --brand-accent-hover: #C7BEFF;
-  --subtle-border: #383740;
-  --border-hover: #4D4B56;
-  --muted-surface: #1E1E24;
-  --soft-accent-surface: #2C2945;
-  --danger: #FF6369;
-  --danger-surface: #3D1C20;
-  --success: #3DD68C;
-  --overlay-bg: rgba(0, 0, 0, 0.75);
-  --skeleton-base: #2B2A33;
-  --skeleton-highlight: #373642;
-
-  /* Aliases */
-  --color-bg: var(--bg-main);
-  --color-surface: var(--bg-surface);
-  --color-text: var(--text-primary);
-  --color-text-secondary: var(--text-secondary);
-  --color-accent: var(--brand-accent);
-  --color-accent-soft: var(--soft-accent-surface);
-  --color-border: var(--subtle-border);
+  --color-border-strong: var(--border-strong);
 }
 
 /* Base Reset & Box Sizing */
@@ -124,6 +110,8 @@ html {
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
+  background-color: var(--bg-main);
+  color-scheme: dark;
 }
 
 body {
@@ -134,7 +122,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
-  transition: background-color var(--transition-normal), color var(--transition-normal);
   overflow-x: hidden;
 }
 
@@ -173,6 +160,13 @@ input, textarea, select {
   font-family: inherit;
   font-size: inherit;
   color: inherit;
+  background-color: var(--bg-surface-secondary);
+  border: 1px solid var(--subtle-border);
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--brand-accent);
+  outline: none;
 }
 
 img, video {
@@ -264,7 +258,7 @@ img, video {
 
 @keyframes modalFadeIn {
   from {
-    transform: scale(0.96);
+    transform: scale(0.97);
     opacity: 0;
   }
   to {
@@ -284,12 +278,12 @@ img, video {
 
 /* Scrollbar styling */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: var(--bg-main);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -298,5 +292,5 @@ img, video {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--border-hover);
+  background: var(--border-strong);
 }

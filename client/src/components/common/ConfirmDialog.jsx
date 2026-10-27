@@ -42,7 +42,6 @@ export default function ConfirmDialog({
         alignItems: "center",
         justifyContent: "center",
         padding: "16px",
-        backdropFilter: "blur(4px)",
       }}
       onClick={(e) => {
         if (e.target === e.currentTarget && !loading) {
@@ -54,9 +53,9 @@ export default function ConfirmDialog({
         style={{
           width: "100%",
           maxWidth: "420px",
-          backgroundColor: "var(--bg-surface)",
-          border: "1px solid var(--subtle-border)",
-          borderRadius: "var(--radius-lg)",
+          backgroundColor: "var(--bg-surface-elevated)",
+          border: "1px solid var(--border-strong)",
+          borderRadius: "var(--radius-sm)",
           boxShadow: "var(--shadow-overlay)",
           padding: "24px",
           position: "relative",

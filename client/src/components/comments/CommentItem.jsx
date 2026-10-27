@@ -87,11 +87,11 @@ export default function CommentItem({ comment, postOwnerId, onDelete }) {
               alignItems: "center",
               gap: "4px",
               fontSize: "0.75rem",
-              color: isLiked ? "var(--danger)" : "var(--text-secondary)",
+              color: isLiked ? "var(--brand-accent)" : "var(--text-secondary)",
               fontWeight: 500,
             }}
           >
-            <Heart size={14} fill={isLiked ? "var(--danger)" : "none"} />
+            <Heart size={14} fill={isLiked ? "var(--brand-accent)" : "none"} />
             <span>{likeCount > 0 ? likeCount : "Like"}</span>
           </button>
 

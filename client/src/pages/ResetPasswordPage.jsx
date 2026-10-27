@@ -66,7 +66,7 @@ export default function ResetPasswordPage() {
           border: "1px solid var(--color-border)",
           borderRadius: "var(--radius-lg)",
           padding: "2.5rem 2rem",
-          boxShadow: "0 8px 30px rgba(0, 0, 0, 0.04)",
+          boxShadow: "0 16px 40px rgba(0, 0, 0, 0.35)",
         }}
       >
         <div style={{ textAlign: "center", marginBottom: "2rem" }}>
@@ -92,9 +92,9 @@ export default function ResetPasswordPage() {
               display: "flex",
               alignItems: "center",
               gap: "8px",
-              background: "rgba(239, 68, 68, 0.08)",
-              border: "1px solid #ef4444",
-              color: "#ef4444",
+              background: "var(--danger-surface)",
+              border: "1px solid var(--danger)",
+              color: "var(--danger)",
               borderRadius: "var(--radius-md)",
               padding: "0.75rem 1rem",
               marginBottom: "1.5rem",

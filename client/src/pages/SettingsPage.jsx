@@ -160,15 +160,16 @@ export default function SettingsPage() {
           style={{
             background: "none",
             border: "none",
-            borderBottom: activeTab === "profile" ? "2px solid var(--color-text)" : "2px solid transparent",
+            borderBottom: activeTab === "profile" ? "2px solid var(--brand-accent)" : "2px solid transparent",
             padding: "0.75rem 0.5rem",
             display: "flex",
             alignItems: "center",
             gap: "8px",
-            color: activeTab === "profile" ? "var(--color-text)" : "var(--color-text-secondary)",
+            color: activeTab === "profile" ? "var(--brand-accent)" : "var(--color-text-secondary)",
             fontWeight: activeTab === "profile" ? "600" : "500",
             fontSize: "0.95rem",
             cursor: "pointer",
+            transition: "all var(--transition-fast)",
           }}
         >
           <User size={18} />
@@ -180,15 +181,16 @@ export default function SettingsPage() {
           style={{
             background: "none",
             border: "none",
-            borderBottom: activeTab === "appearance" ? "2px solid var(--color-text)" : "2px solid transparent",
+            borderBottom: activeTab === "appearance" ? "2px solid var(--brand-accent)" : "2px solid transparent",
             padding: "0.75rem 0.5rem",
             display: "flex",
             alignItems: "center",
             gap: "8px",
-            color: activeTab === "appearance" ? "var(--color-text)" : "var(--color-text-secondary)",
+            color: activeTab === "appearance" ? "var(--brand-accent)" : "var(--color-text-secondary)",
             fontWeight: activeTab === "appearance" ? "600" : "500",
             fontSize: "0.95rem",
             cursor: "pointer",
+            transition: "all var(--transition-fast)",
           }}
         >
           <Palette size={18} />
@@ -200,15 +202,16 @@ export default function SettingsPage() {
           style={{
             background: "none",
             border: "none",
-            borderBottom: activeTab === "security" ? "2px solid var(--color-text)" : "2px solid transparent",
+            borderBottom: activeTab === "security" ? "2px solid var(--brand-accent)" : "2px solid transparent",
             padding: "0.75rem 0.5rem",
             display: "flex",
             alignItems: "center",
             gap: "8px",
-            color: activeTab === "security" ? "var(--color-text)" : "var(--color-text-secondary)",
+            color: activeTab === "security" ? "var(--brand-accent)" : "var(--color-text-secondary)",
             fontWeight: activeTab === "security" ? "600" : "500",
             fontSize: "0.95rem",
             cursor: "pointer",
+            transition: "all var(--transition-fast)",
           }}
         >
           <Shield size={18} />
@@ -222,9 +225,8 @@ export default function SettingsPage() {
           style={{
             background: "var(--color-surface)",
             border: "1px solid var(--color-border)",
-            borderRadius: "var(--radius-lg)",
+            borderRadius: "var(--radius-sm)",
             padding: "2rem",
-            boxShadow: "0 4px 20px rgba(0,0,0,0.03)",
           }}
         >
           {profileError && (
@@ -233,10 +235,10 @@ export default function SettingsPage() {
                 display: "flex",
                 alignItems: "center",
                 gap: "10px",
-                background: "rgba(239, 68, 68, 0.08)",
-                border: "1px solid #ef4444",
-                color: "#ef4444",
-                borderRadius: "var(--radius-md)",
+                background: "var(--danger-surface)",
+                border: "1px solid var(--danger)",
+                color: "var(--danger)",
+                borderRadius: "var(--radius-sm)",
                 padding: "0.85rem 1rem",
                 marginBottom: "1.5rem",
                 fontSize: "0.9rem",
@@ -387,66 +389,65 @@ export default function SettingsPage() {
           style={{
             background: "var(--color-surface)",
             border: "1px solid var(--color-border)",
-            borderRadius: "var(--radius-lg)",
+            borderRadius: "var(--radius-sm)",
             padding: "2rem",
-            boxShadow: "0 4px 20px rgba(0,0,0,0.03)",
           }}
         >
           <h3 style={{ fontSize: "1.1rem", fontWeight: "600", marginBottom: "0.5rem" }}>Color Theme</h3>
           <p style={{ fontSize: "0.9rem", color: "var(--color-text-secondary)", marginBottom: "1.5rem" }}>
-            Choose how FRAME appears on your device. The default follows your system preference.
+            FRAME uses an intentional dark charcoal architecture crafted specifically for editorial photography.
           </p>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "1rem" }}>
             <div
-              onClick={() => setTheme("light")}
+              onClick={() => setTheme("dark")}
               style={{
-                border: `2px solid ${theme === "light" ? "var(--color-accent)" : "var(--color-border)"}`,
-                borderRadius: "var(--radius-md)",
+                border: `2px solid ${theme === "dark" || theme === "system" ? "var(--brand-accent)" : "var(--color-border)"}`,
+                borderRadius: "var(--radius-sm)",
                 padding: "1.25rem",
                 cursor: "pointer",
-                background: "#F7F6F2",
-                color: "#191919",
+                background: "var(--bg-surface-secondary)",
+                color: "var(--text-primary)",
                 display: "flex",
                 flexDirection: "column",
                 gap: "8px",
                 transition: "all var(--transition-fast)",
               }}
             >
-              <Sun size={24} color="#6558D3" />
-              <strong style={{ fontSize: "1rem" }}>Light Theme</strong>
-              <span style={{ fontSize: "0.8rem", color: "#777777" }}>
-                #F7F6F2 background with high editorial contrast
+              <Moon size={24} color="var(--brand-accent)" />
+              <strong style={{ fontSize: "1rem" }}>Dark Charcoal</strong>
+              <span style={{ fontSize: "0.8rem", color: "var(--text-secondary)" }}>
+                #090909 canvas with neutral charcoal surfaces & cyan accents
               </span>
             </div>
 
             <div
-              onClick={() => setTheme("dark")}
+              onClick={() => setTheme("light")}
               style={{
-                border: `2px solid ${theme === "dark" ? "var(--color-accent)" : "var(--color-border)"}`,
-                borderRadius: "var(--radius-md)",
+                border: `2px solid ${theme === "light" ? "var(--brand-accent)" : "var(--color-border)"}`,
+                borderRadius: "var(--radius-sm)",
                 padding: "1.25rem",
                 cursor: "pointer",
-                background: "#15151A",
-                color: "#F5F4F1",
+                background: "var(--bg-surface-elevated)",
+                color: "var(--text-primary)",
                 display: "flex",
                 flexDirection: "column",
                 gap: "8px",
                 transition: "all var(--transition-fast)",
               }}
             >
-              <Moon size={24} color="#B5A9FF" />
-              <strong style={{ fontSize: "1rem" }}>Dark Theme</strong>
-              <span style={{ fontSize: "0.8rem", color: "#AAA9B2" }}>
-                #15151A dark canvas tailored for photography
+              <Sun size={24} color="var(--brand-accent)" />
+              <strong style={{ fontSize: "1rem" }}>Studio Contrast</strong>
+              <span style={{ fontSize: "0.8rem", color: "var(--text-secondary)" }}>
+                Enhanced contrast charcoal palette for bright editing environments
               </span>
             </div>
 
             <div
               onClick={() => setTheme("system")}
               style={{
-                border: `2px solid ${theme === "system" ? "var(--color-accent)" : "var(--color-border)"}`,
-                borderRadius: "var(--radius-md)",
+                border: `2px solid ${theme === "system" ? "var(--brand-accent)" : "var(--color-border)"}`,
+                borderRadius: "var(--radius-sm)",
                 padding: "1.25rem",
                 cursor: "pointer",
                 background: "var(--color-bg)",
@@ -457,10 +458,10 @@ export default function SettingsPage() {
                 transition: "all var(--transition-fast)",
               }}
             >
-              <Laptop size={24} color="var(--color-accent)" />
+              <Laptop size={24} color="var(--brand-accent)" />
               <strong style={{ fontSize: "1rem" }}>System Default</strong>
               <span style={{ fontSize: "0.8rem", color: "var(--color-text-secondary)" }}>
-                Automatically matches your OS settings
+                Follows device operating system preference
               </span>
             </div>
           </div>
@@ -473,9 +474,8 @@ export default function SettingsPage() {
           style={{
             background: "var(--color-surface)",
             border: "1px solid var(--color-border)",
-            borderRadius: "var(--radius-lg)",
+            borderRadius: "var(--radius-sm)",
             padding: "2rem",
-            boxShadow: "0 4px 20px rgba(0,0,0,0.03)",
           }}
         >
           <h3 style={{ fontSize: "1.1rem", fontWeight: "600", marginBottom: "0.5rem" }}>Change Password</h3>
@@ -489,10 +489,10 @@ export default function SettingsPage() {
                 display: "flex",
                 alignItems: "center",
                 gap: "10px",
-                background: "rgba(239, 68, 68, 0.08)",
-                border: "1px solid #ef4444",
-                color: "#ef4444",
-                borderRadius: "var(--radius-md)",
+                background: "var(--danger-surface)",
+                border: "1px solid var(--danger)",
+                color: "var(--danger)",
+                borderRadius: "var(--radius-sm)",
                 padding: "0.85rem 1rem",
                 marginBottom: "1.5rem",
                 fontSize: "0.9rem",

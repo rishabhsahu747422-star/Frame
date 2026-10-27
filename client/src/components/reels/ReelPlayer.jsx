@@ -237,21 +237,21 @@ export default function ReelPlayer({ reel, isActive = true }) {
             flexDirection: "column",
             alignItems: "center",
             gap: "4px",
-            color: isLiked ? "var(--danger)" : "#FFFFFF",
+            color: isLiked ? "var(--brand-accent)" : "#FFFFFF",
           }}
         >
           <div
             style={{
               padding: "10px",
               borderRadius: "var(--radius-full)",
-              backgroundColor: "rgba(0, 0, 0, 0.4)",
-              backdropFilter: "blur(4px)",
+              backgroundColor: "rgba(9, 9, 9, 0.65)",
+              border: "1px solid var(--subtle-border)",
               display: "flex",
             }}
           >
-            <Heart size={24} fill={isLiked ? "var(--danger)" : "none"} />
+            <Heart size={24} fill={isLiked ? "var(--brand-accent)" : "none"} strokeWidth={isLiked ? 2.5 : 2} />
           </div>
-          <span style={{ fontSize: "0.75rem", fontWeight: 600, color: "#FFFFFF" }}>
+          <span style={{ fontSize: "0.75rem", fontWeight: 600, color: isLiked ? "var(--brand-accent)" : "#FFFFFF" }}>
             {likeCount}
           </span>
         </button>

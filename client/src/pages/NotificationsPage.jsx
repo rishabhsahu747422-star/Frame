@@ -68,13 +68,13 @@ export default function NotificationsPage() {
   const getNotificationIcon = (type) => {
     switch (type) {
       case "like":
-        return <Heart size={16} fill="#ef4444" color="#ef4444" />;
+        return <Heart size={16} fill="var(--brand-accent)" color="var(--brand-accent)" />;
       case "comment":
-        return <MessageCircle size={16} color="var(--color-accent)" />;
+        return <MessageCircle size={16} color="var(--brand-accent)" />;
       case "follow":
-        return <UserPlus size={16} color="#10b981" />;
+        return <UserPlus size={16} color="var(--brand-accent)" />;
       default:
-        return <Bell size={16} color="var(--color-accent)" />;
+        return <Bell size={16} color="var(--brand-accent)" />;
     }
   };
 
@@ -166,9 +166,8 @@ export default function NotificationsPage() {
           style={{
             background: "var(--color-surface)",
             border: "1px solid var(--color-border)",
-            borderRadius: "var(--radius-lg)",
+            borderRadius: "var(--radius-sm)",
             overflow: "hidden",
-            boxShadow: "0 4px 20px rgba(0,0,0,0.03)",
           }}
         >
           {notifications.map((item, idx) => {

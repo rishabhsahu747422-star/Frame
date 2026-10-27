@@ -122,7 +122,7 @@ export default function Sidebar() {
 
         {/* Navigation list */}
         <nav aria-label="Main Navigation">
-          <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "4px" }}>
+          <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "2px" }}>
             {navItems.map((item) => {
               const IconComponent = item.icon;
               return (
@@ -132,16 +132,29 @@ export default function Sidebar() {
                     style={({ isActive }) => ({
                       display: "flex",
                       alignItems: "center",
-                      gap: "14px",
+                      gap: "12px",
                       padding: "10px 14px",
                       borderRadius: "var(--radius-sm)",
+                      borderLeft: isActive ? "2px solid var(--brand-accent)" : "2px solid transparent",
                       fontSize: "0.9375rem",
                       fontWeight: isActive ? 600 : 400,
-                      color: isActive ? "var(--brand-accent)" : "var(--text-primary)",
+                      color: isActive ? "var(--brand-accent)" : "var(--text-secondary)",
                       backgroundColor: isActive ? "var(--soft-accent-surface)" : "transparent",
                       transition: "all var(--transition-fast)",
                       position: "relative",
                     })}
+                    onMouseEnter={(e) => {
+                      if (!e.currentTarget.classList.contains("active")) {
+                        e.currentTarget.style.backgroundColor = "var(--bg-surface-secondary)";
+                        e.currentTarget.style.color = "var(--text-primary)";
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (!e.currentTarget.classList.contains("active")) {
+                        e.currentTarget.style.backgroundColor = "transparent";
+                        e.currentTarget.style.color = "var(--text-secondary)";
+                      }
+                    }}
                   >
                     <span style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
                       <IconComponent size={20} />
@@ -152,7 +165,7 @@ export default function Sidebar() {
                         style={{
                           marginLeft: "auto",
                           backgroundColor: "var(--brand-accent)",
-                          color: "#FFFFFF",
+                          color: "var(--brand-accent-text)",
                           fontSize: "0.6875rem",
                           fontWeight: 700,
                           padding: "2px 6px",

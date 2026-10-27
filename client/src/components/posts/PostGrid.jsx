@@ -54,14 +54,14 @@ export default function PostGrid({ posts = [], emptyState = null }) {
                   position: "absolute",
                   top: "8px",
                   right: "8px",
-                  backgroundColor: "rgba(0, 0, 0, 0.5)",
-                  color: "#FFFFFF",
+                  backgroundColor: "rgba(9, 9, 9, 0.75)",
+                  color: "var(--text-primary)",
+                  border: "1px solid var(--subtle-border)",
                   padding: "4px",
                   borderRadius: "var(--radius-xs)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  backdropFilter: "blur(2px)",
                 }}
               >
                 <Copy size={13} />
@@ -74,25 +74,24 @@ export default function PostGrid({ posts = [], emptyState = null }) {
               style={{
                 position: "absolute",
                 inset: 0,
-                backgroundColor: "rgba(0, 0, 0, 0.4)",
-                color: "#FFFFFF",
+                backgroundColor: "rgba(9, 9, 9, 0.65)",
+                color: "var(--text-primary)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 gap: "20px",
                 opacity: 0,
                 transition: "opacity var(--transition-fast)",
-                backdropFilter: "blur(2px)",
               }}
               onMouseEnter={(e) => (e.currentTarget.style.opacity = 1)}
               onMouseLeave={(e) => (e.currentTarget.style.opacity = 0)}
             >
-              <div style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 600, fontSize: "0.875rem" }}>
-                <Heart size={18} fill="#FFFFFF" />
+              <div style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 600, fontSize: "0.875rem", color: "var(--text-primary)" }}>
+                <Heart size={18} fill="var(--brand-accent)" color="var(--brand-accent)" />
                 <span>{post.likeCount || 0}</span>
               </div>
-              <div style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 600, fontSize: "0.875rem" }}>
-                <MessageCircle size={18} fill="#FFFFFF" />
+              <div style={{ display: "flex", alignItems: "center", gap: "6px", fontWeight: 600, fontSize: "0.875rem", color: "var(--text-primary)" }}>
+                <MessageCircle size={18} color="var(--text-primary)" />
                 <span>{post.commentCount || 0}</span>
               </div>
             </div>

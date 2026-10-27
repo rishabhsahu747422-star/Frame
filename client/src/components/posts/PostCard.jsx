@@ -118,10 +118,9 @@ export default function PostCard({ post, onDelete, onSaveToCollection }) {
       style={{
         backgroundColor: "var(--bg-surface)",
         border: "1px solid var(--subtle-border)",
-        borderRadius: "var(--radius-md)",
+        borderRadius: "var(--radius-sm)",
         marginBottom: "24px",
         overflow: "hidden",
-        boxShadow: "var(--shadow-sm)",
       }}
     >
       {/* Creator Header */}
@@ -130,7 +129,7 @@ export default function PostCard({ post, onDelete, onSaveToCollection }) {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          padding: "14px 16px",
+          padding: "12px 16px",
         }}
       >
         <Link
@@ -185,8 +184,8 @@ export default function PostCard({ post, onDelete, onSaveToCollection }) {
                 position: "absolute",
                 top: "100%",
                 right: 0,
-                backgroundColor: "var(--bg-surface)",
-                border: "1px solid var(--subtle-border)",
+                backgroundColor: "var(--bg-surface-elevated)",
+                border: "1px solid var(--border-strong)",
                 borderRadius: "var(--radius-sm)",
                 boxShadow: "var(--shadow-md)",
                 zIndex: 20,
@@ -210,6 +209,8 @@ export default function PostCard({ post, onDelete, onSaveToCollection }) {
                   textAlign: "left",
                   color: "var(--text-primary)",
                 }}
+                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "var(--bg-surface-hover)")}
+                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
               >
                 <Share2 size={14} /> Copy Link
               </button>
@@ -230,6 +231,8 @@ export default function PostCard({ post, onDelete, onSaveToCollection }) {
                     textAlign: "left",
                     color: "var(--text-primary)",
                   }}
+                  onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "var(--bg-surface-hover)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
                 >
                   <FolderPlus size={14} /> Add to Collection
                 </button>
@@ -251,6 +254,8 @@ export default function PostCard({ post, onDelete, onSaveToCollection }) {
                     textAlign: "left",
                     color: "var(--danger)",
                   }}
+                  onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "var(--bg-surface-hover)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
                 >
                   <Trash2 size={14} /> Delete Post
                 </button>
@@ -264,7 +269,7 @@ export default function PostCard({ post, onDelete, onSaveToCollection }) {
       <MediaCarousel mediaUrls={post.media_urls} alt={caption || "FRAME photograph"} />
 
       {/* Engagement Actions */}
-      <div style={{ padding: "12px 16px 6px 16px" }}>
+      <div style={{ padding: "12px 16px 8px 16px" }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "8px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
             <button
@@ -274,11 +279,17 @@ export default function PostCard({ post, onDelete, onSaveToCollection }) {
                 display: "flex",
                 alignItems: "center",
                 gap: "6px",
-                color: isLiked ? "var(--danger)" : "var(--text-primary)",
-                transition: "transform var(--transition-fast)",
+                color: isLiked ? "var(--brand-accent)" : "var(--text-secondary)",
+                transition: "all var(--transition-fast)",
+              }}
+              onMouseEnter={(e) => {
+                if (!isLiked) e.currentTarget.style.color = "var(--text-primary)";
+              }}
+              onMouseLeave={(e) => {
+                if (!isLiked) e.currentTarget.style.color = "var(--text-secondary)";
               }}
             >
-              <Heart size={22} fill={isLiked ? "var(--danger)" : "none"} />
+              <Heart size={20} fill={isLiked ? "var(--brand-accent)" : "none"} strokeWidth={isLiked ? 2.5 : 2} />
               <span style={{ fontSize: "0.875rem", fontWeight: 600 }}>{likeCount}</span>
             </button>
 
@@ -289,10 +300,13 @@ export default function PostCard({ post, onDelete, onSaveToCollection }) {
                 display: "flex",
                 alignItems: "center",
                 gap: "6px",
-                color: "var(--text-primary)",
+                color: "var(--text-secondary)",
+                transition: "color var(--transition-fast)",
               }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text-primary)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-secondary)")}
             >
-              <MessageCircle size={22} />
+              <MessageCircle size={20} />
               <span style={{ fontSize: "0.875rem", fontWeight: 600 }}>
                 {post.commentCount || 0}
               </span>
@@ -301,9 +315,11 @@ export default function PostCard({ post, onDelete, onSaveToCollection }) {
             <button
               onClick={handleShare}
               aria-label="Share post"
-              style={{ color: "var(--text-primary)" }}
+              style={{ color: "var(--text-secondary)", transition: "color var(--transition-fast)" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text-primary)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-secondary)")}
             >
-              <Share2 size={20} />
+              <Share2 size={18} />
             </button>
           </div>
 
@@ -311,10 +327,17 @@ export default function PostCard({ post, onDelete, onSaveToCollection }) {
             onClick={handleSave}
             aria-label={isSaved ? "Remove from saved" : "Save post"}
             style={{
-              color: isSaved ? "var(--brand-accent)" : "var(--text-primary)",
+              color: isSaved ? "var(--brand-accent)" : "var(--text-secondary)",
+              transition: "color var(--transition-fast)",
+            }}
+            onMouseEnter={(e) => {
+              if (!isSaved) e.currentTarget.style.color = "var(--text-primary)";
+            }}
+            onMouseLeave={(e) => {
+              if (!isSaved) e.currentTarget.style.color = "var(--text-secondary)";
             }}
           >
-            <Bookmark size={22} fill={isSaved ? "var(--brand-accent)" : "none"} />
+            <Bookmark size={20} fill={isSaved ? "var(--brand-accent)" : "none"} />
           </button>
         </div>
 

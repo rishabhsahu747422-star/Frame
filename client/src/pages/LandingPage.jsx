@@ -180,7 +180,6 @@ export default function LandingPage() {
               borderRadius: "var(--radius-lg)",
               overflow: "hidden",
               border: "1px solid var(--color-border)",
-              boxShadow: "0 8px 30px rgba(0,0,0,0.06)",
               minHeight: "440px",
               position: "relative",
             }}

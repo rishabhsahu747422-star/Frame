@@ -17,17 +17,14 @@ export default function CollectionCard({ collection }) {
         flexDirection: "column",
         backgroundColor: "var(--bg-surface)",
         border: "1px solid var(--subtle-border)",
-        borderRadius: "var(--radius-md)",
+        borderRadius: "var(--radius-sm)",
         overflow: "hidden",
-        boxShadow: "var(--shadow-sm)",
-        transition: "transform var(--transition-fast), border-color var(--transition-fast)",
+        transition: "border-color var(--transition-fast)",
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.transform = "translateY(-2px)";
-        e.currentTarget.style.borderColor = "var(--border-hover)";
+        e.currentTarget.style.borderColor = "var(--border-strong)";
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.transform = "translateY(0)";
         e.currentTarget.style.borderColor = "var(--subtle-border)";
       }}
     >
@@ -69,8 +66,9 @@ export default function CollectionCard({ collection }) {
             position: "absolute",
             top: "10px",
             right: "10px",
-            backgroundColor: "rgba(0, 0, 0, 0.6)",
-            color: "#FFFFFF",
+            backgroundColor: "rgba(9, 9, 9, 0.75)",
+            border: "1px solid var(--subtle-border)",
+            color: "var(--text-primary)",
             padding: "4px 8px",
             borderRadius: "var(--radius-full)",
             fontSize: "0.6875rem",
@@ -78,7 +76,6 @@ export default function CollectionCard({ collection }) {
             display: "flex",
             alignItems: "center",
             gap: "4px",
-            backdropFilter: "blur(4px)",
           }}
         >
           {collection.isPublic ? <Globe size={12} /> : <Lock size={12} />}

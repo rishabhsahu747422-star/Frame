@@ -147,9 +147,8 @@ export default function CreatePostPage() {
         style={{
           background: "var(--color-surface)",
           border: "1px solid var(--color-border)",
-          borderRadius: "var(--radius-lg)",
+          borderRadius: "var(--radius-sm)",
           padding: "2.5rem 2rem",
-          boxShadow: "0 4px 20px rgba(0,0,0,0.03)",
         }}
       >
         <div style={{ marginBottom: "2rem" }}>
@@ -175,10 +174,10 @@ export default function CreatePostPage() {
               display: "flex",
               alignItems: "center",
               gap: "10px",
-              background: "rgba(239, 68, 68, 0.08)",
-              border: "1px solid #ef4444",
-              color: "#ef4444",
-              borderRadius: "var(--radius-md)",
+              background: "var(--danger-surface)",
+              border: "1px solid var(--danger)",
+              color: "var(--danger)",
+              borderRadius: "var(--radius-sm)",
               padding: "0.9rem 1.25rem",
               marginBottom: "1.75rem",
               fontSize: "0.9rem",
@@ -197,12 +196,12 @@ export default function CreatePostPage() {
             onDrop={handleDrop}
             onClick={() => fileInputRef.current?.click()}
             style={{
-              border: `2px dashed ${isDragOver ? "var(--color-accent)" : "var(--color-border)"}`,
-              borderRadius: "var(--radius-lg)",
+              border: `1px dashed ${isDragOver ? "var(--color-accent)" : "var(--color-border)"}`,
+              borderRadius: "var(--radius-sm)",
               padding: "3rem 1.5rem",
               textAlign: "center",
               cursor: "pointer",
-              background: isDragOver ? "var(--color-accent-soft)" : "var(--color-bg)",
+              background: isDragOver ? "var(--color-accent-soft)" : "var(--bg-surface-secondary)",
               transition: "all var(--transition-fast)",
               marginBottom: "2rem",
             }}
@@ -217,19 +216,19 @@ export default function CreatePostPage() {
             />
             <div
               style={{
-                width: "56px",
-                height: "56px",
-                borderRadius: "9999px",
+                width: "52px",
+                height: "52px",
+                borderRadius: "var(--radius-full)",
                 background: "var(--color-surface)",
+                border: "1px solid var(--subtle-border)",
                 display: "inline-flex",
                 alignItems: "center",
                 justifyContent: "center",
                 color: "var(--color-accent)",
                 marginBottom: "1rem",
-                boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
               }}
             >
-              <UploadCloud size={28} />
+              <UploadCloud size={24} />
             </div>
             <h3 style={{ fontSize: "1.1rem", fontWeight: "600", marginBottom: "0.35rem" }}>
               Click or drag photographs to upload

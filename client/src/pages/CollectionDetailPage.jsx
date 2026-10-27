@@ -150,7 +150,6 @@ export default function CollectionDetailPage() {
           borderRadius: "var(--radius-lg)",
           padding: "2rem",
           marginBottom: "2.5rem",
-          boxShadow: "0 4px 20px rgba(0,0,0,0.03)",
         }}
       >
         <div
@@ -174,7 +173,7 @@ export default function CollectionDetailPage() {
                   textTransform: "uppercase",
                   padding: "0.25rem 0.6rem",
                   borderRadius: "9999px",
-                  background: collection.isPublic ? "rgba(101, 88, 211, 0.1)" : "var(--color-border)",
+                  background: collection.isPublic ? "rgba(22, 220, 235, 0.12)" : "var(--color-border)",
                   color: collection.isPublic ? "var(--color-accent)" : "var(--color-text-secondary)",
                 }}
               >

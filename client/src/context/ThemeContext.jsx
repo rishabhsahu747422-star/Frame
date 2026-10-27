@@ -4,10 +4,10 @@ const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
   const [themePreference, setThemePreference] = useState(() => {
-    return localStorage.getItem("frame-theme") || "system";
+    return localStorage.getItem("frame-theme") || "dark";
   });
 
-  const [activeTheme, setActiveTheme] = useState("light");
+  const [activeTheme, setActiveTheme] = useState("dark");
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");

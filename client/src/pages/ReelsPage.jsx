@@ -190,16 +190,15 @@ export default function ReelsPage() {
             style={{
               width: "44px",
               height: "44px",
-              borderRadius: "9999px",
-              background: "var(--color-surface)",
-              border: "1px solid var(--color-border)",
+              borderRadius: "var(--radius-full)",
+              background: "var(--bg-surface-elevated)",
+              border: "1px solid var(--subtle-border)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               cursor: activeIndex === 0 ? "not-allowed" : "pointer",
               opacity: activeIndex === 0 ? 0.35 : 1,
-              color: "var(--color-text)",
-              boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
+              color: "var(--text-primary)",
             }}
             title="Previous Reel (Arrow Up)"
             aria-label="Previous Reel"
@@ -213,16 +212,15 @@ export default function ReelsPage() {
             style={{
               width: "44px",
               height: "44px",
-              borderRadius: "9999px",
-              background: "var(--color-surface)",
-              border: "1px solid var(--color-border)",
+              borderRadius: "var(--radius-full)",
+              background: "var(--bg-surface-elevated)",
+              border: "1px solid var(--subtle-border)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               cursor: activeIndex === reels.length - 1 ? "not-allowed" : "pointer",
               opacity: activeIndex === reels.length - 1 ? 0.35 : 1,
-              color: "var(--color-text)",
-              boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
+              color: "var(--text-primary)",
             }}
             title="Next Reel (Arrow Down)"
             aria-label="Next Reel"

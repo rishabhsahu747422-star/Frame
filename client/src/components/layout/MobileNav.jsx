@@ -54,10 +54,10 @@ export default function MobileNav() {
       <NavLink
         to="/create"
         style={{
-          color: "#FFFFFF",
+          color: "var(--brand-accent-text)",
           backgroundColor: "var(--brand-accent)",
           padding: "8px",
-          borderRadius: "var(--radius-md)",
+          borderRadius: "var(--radius-sm)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",

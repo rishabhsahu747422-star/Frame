@@ -124,12 +124,11 @@ export default function StoryViewerModal({
       style={{
         position: "fixed",
         inset: 0,
-        backgroundColor: "rgba(0, 0, 0, 0.92)",
+        backgroundColor: "rgba(0, 0, 0, 0.95)",
         zIndex: 9000,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        backdropFilter: "blur(8px)",
       }}
     >
       {/* Top Header: Progress indicators and Creator profile */}
@@ -144,7 +143,7 @@ export default function StoryViewerModal({
           flexDirection: "column",
           gap: "12px",
           zIndex: 20,
-          background: "linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%)",
+          background: "linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%)",
         }}
       >
         {/* Progress bars for each story */}
@@ -155,7 +154,7 @@ export default function StoryViewerModal({
               style={{
                 flex: 1,
                 height: "3px",
-                backgroundColor: "rgba(255, 255, 255, 0.3)",
+                backgroundColor: "rgba(255, 255, 255, 0.2)",
                 borderRadius: "var(--radius-full)",
                 overflow: "hidden",
               }}
@@ -163,7 +162,7 @@ export default function StoryViewerModal({
               <div
                 style={{
                   height: "100%",
-                  backgroundColor: "#FFFFFF",
+                  backgroundColor: "var(--brand-accent)",
                   width:
                     idx < currentIndex
                       ? "100%"
@@ -260,13 +259,13 @@ export default function StoryViewerModal({
               bottom: "24px",
               left: "16px",
               right: "16px",
-              backgroundColor: "rgba(0, 0, 0, 0.6)",
+              backgroundColor: "rgba(9, 9, 9, 0.8)",
+              border: "1px solid var(--subtle-border)",
               padding: "10px 14px",
-              borderRadius: "var(--radius-md)",
-              color: "#FFFFFF",
+              borderRadius: "var(--radius-sm)",
+              color: "var(--text-primary)",
               fontSize: "0.875rem",
               textAlign: "center",
-              backdropFilter: "blur(4px)",
             }}
           >
             {currentStory.caption}

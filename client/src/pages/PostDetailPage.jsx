@@ -317,14 +317,14 @@ export default function PostDetailPage() {
         {/* Media Canvas */}
         <div
           style={{
-            background: "#000000",
-            borderRadius: "var(--radius-lg)",
+            background: "var(--bg-main)",
+            border: "1px solid var(--color-border)",
+            borderRadius: "var(--radius-sm)",
             overflow: "hidden",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             minHeight: "450px",
-            boxShadow: "0 8px 30px rgba(0,0,0,0.08)",
           }}
         >
           <MediaCarousel images={post.images || post.media_urls || []} altText={post.caption || "FRAME photograph"} />
@@ -335,7 +335,7 @@ export default function PostDetailPage() {
           style={{
             background: "var(--color-surface)",
             border: "1px solid var(--color-border)",
-            borderRadius: "var(--radius-lg)",
+            borderRadius: "var(--radius-sm)",
             padding: "1.75rem",
             display: "flex",
             flexDirection: "column",
@@ -378,10 +378,10 @@ export default function PostDetailPage() {
                 onClick={handleFollowToggle}
                 style={{
                   padding: "0.4rem 0.9rem",
-                  borderRadius: "9999px",
+                  borderRadius: "var(--radius-sm)",
                   border: isFollowing ? "1px solid var(--color-border)" : "none",
                   background: isFollowing ? "transparent" : "var(--color-accent)",
-                  color: isFollowing ? "var(--color-text)" : "#ffffff",
+                  color: isFollowing ? "var(--color-text)" : "var(--brand-accent-text)",
                   fontSize: "0.85rem",
                   fontWeight: "600",
                   cursor: "pointer",
@@ -455,12 +455,13 @@ export default function PostDetailPage() {
                   display: "flex",
                   alignItems: "center",
                   gap: "6px",
-                  color: isLiked ? "#ef4444" : "var(--color-text)",
+                  color: isLiked ? "var(--color-accent)" : "var(--color-text)",
                   fontWeight: "600",
                   fontSize: "0.95rem",
+                  transition: "color var(--transition-fast)",
                 }}
               >
-                <Heart size={20} fill={isLiked ? "#ef4444" : "none"} strokeWidth={2} />
+                <Heart size={20} fill={isLiked ? "var(--color-accent)" : "none"} strokeWidth={isLiked ? 2.5 : 2} />
                 <span>{likesCount}</span>
               </button>
             </div>
@@ -475,10 +476,11 @@ export default function PostDetailPage() {
                 display: "flex",
                 alignItems: "center",
                 gap: "6px",
+                transition: "color var(--transition-fast)",
               }}
               title={isSaved ? "Saved" : "Save to collection"}
             >
-              <Bookmark size={20} fill={isSaved ? "currentColor" : "none"} strokeWidth={2} />
+              <Bookmark size={20} fill={isSaved ? "var(--color-accent)" : "none"} strokeWidth={2} />
               <span style={{ fontSize: "0.85rem", fontWeight: "500" }}>{isSaved ? "Saved" : "Save"}</span>
             </button>
           </div>

@@ -73,7 +73,7 @@ export default function StoryTray() {
               bottom: "2px",
               right: "2px",
               backgroundColor: "var(--brand-accent)",
-              color: "#FFFFFF",
+              color: "var(--brand-accent-text)",
               width: "20px",
               height: "20px",
               borderRadius: "var(--radius-full)",
@@ -121,12 +121,12 @@ export default function StoryTray() {
           >
             <div
               style={{
-                padding: "2.5px",
+                padding: "2px",
                 borderRadius: "var(--radius-full)",
                 background: hasUnviewed
-                  ? "linear-gradient(45deg, #FF6369, var(--brand-accent), #B5A9FF)"
+                  ? "linear-gradient(135deg, var(--brand-accent), var(--brand-accent-hover))"
                   : "var(--subtle-border)",
-                boxShadow: hasUnviewed ? "var(--shadow-sm)" : "none",
+                boxShadow: hasUnviewed ? "0 0 8px rgba(22, 220, 235, 0.25)" : "none",
                 transition: "transform var(--transition-fast)",
               }}
               onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.04)")}
@@ -136,7 +136,7 @@ export default function StoryTray() {
                 style={{
                   padding: "2px",
                   borderRadius: "var(--radius-full)",
-                  backgroundColor: "var(--bg-surface)",
+                  backgroundColor: "var(--bg-main)",
                 }}
               >
                 <Avatar src={creator.profile_pic} alt={creator.username} size="lg" />
