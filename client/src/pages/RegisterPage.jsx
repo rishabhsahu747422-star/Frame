@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Eye, EyeOff, AlertCircle, ArrowRight, CheckCircle2 } from "lucide-react";
+import {
+  Eye,
+  EyeOff,
+  AlertCircle,
+  ArrowRight,
+  CheckCircle2,
+} from "lucide-react";
 import { useAuth } from "../context/AuthContext.jsx";
 import { useToast } from "../context/ToastContext.jsx";
 import Button from "../components/common/Button.jsx";
@@ -47,7 +53,10 @@ export default function RegisterPage() {
       showToast("Account created successfully! Welcome to FRAME.", "success");
       navigate("/onboarding");
     } catch (err) {
-      setError(err.message || "Registration failed. Username or email may already be registered.");
+      setError(
+        err.message ||
+          "Registration failed. Username or email may already be registered.",
+      );
     } finally {
       setLoading(false);
     }
@@ -77,10 +86,26 @@ export default function RegisterPage() {
       >
         {/* Brand Header */}
         <div style={{ textAlign: "center", marginBottom: "2rem" }}>
-          <div style={{ display: "flex", justifyContent: "center", marginBottom: "0.85rem" }}>
-            <Logo variant="full" size="lg" subtitle="CAPTURE / CREATE / CONNECT" linkTo="/" />
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginBottom: "0.85rem",
+            }}
+          >
+            <Logo
+              variant="full"
+              size="lg"
+              subtitle="CAPTURE / CREATE / CONNECT"
+              linkTo="/"
+            />
           </div>
-          <p style={{ color: "var(--color-text-secondary)", fontSize: "0.95rem" }}>
+          <p
+            style={{
+              color: "var(--color-text-secondary)",
+              fontSize: "0.95rem",
+            }}
+          >
             Join the community of photographers and visual curators
           </p>
         </div>
@@ -106,7 +131,14 @@ export default function RegisterPage() {
         )}
 
         <form onSubmit={handleSubmit}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1.25rem" }}>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              gap: "1rem",
+              marginBottom: "1.25rem",
+            }}
+          >
             <div>
               <label
                 htmlFor="name"
@@ -125,7 +157,7 @@ export default function RegisterPage() {
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="Elena Rostova"
+                placeholder="Rishabh Sahu"
                 required
                 style={{
                   width: "100%",
@@ -159,7 +191,7 @@ export default function RegisterPage() {
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                placeholder="elenarostova"
+                placeholder="rishabh-star"
                 required
                 style={{
                   width: "100%",
@@ -194,7 +226,7 @@ export default function RegisterPage() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="elena@example.com"
+              placeholder="rishabh@example.com"
               required
               style={{
                 width: "100%",
@@ -283,7 +315,7 @@ export default function RegisterPage() {
               type="text"
               value={bio}
               onChange={(e) => setBio(e.target.value)}
-              placeholder="e.g. Architectural & landscape photographer based in Berlin"
+              placeholder="Architectural & landscape photographer"
               style={{
                 width: "100%",
                 padding: "0.75rem 1rem",
@@ -304,8 +336,20 @@ export default function RegisterPage() {
               variant="primary"
               size="lg"
               loading={loading}
-              disabled={loading || !name.trim() || !username.trim() || !email.trim() || !password}
-              style={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center", gap: "8px" }}
+              disabled={
+                loading ||
+                !name.trim() ||
+                !username.trim() ||
+                !email.trim() ||
+                !password
+              }
+              style={{
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "8px",
+              }}
             >
               Create Account
               <ArrowRight size={16} />
@@ -313,8 +357,16 @@ export default function RegisterPage() {
           </div>
         </form>
 
-        <div style={{ textAlign: "center", paddingTop: "1rem", borderTop: "1px solid var(--color-border)" }}>
-          <p style={{ fontSize: "0.9rem", color: "var(--color-text-secondary)" }}>
+        <div
+          style={{
+            textAlign: "center",
+            paddingTop: "1rem",
+            borderTop: "1px solid var(--color-border)",
+          }}
+        >
+          <p
+            style={{ fontSize: "0.9rem", color: "var(--color-text-secondary)" }}
+          >
             Already have an account?{" "}
             <Link
               to="/login"
