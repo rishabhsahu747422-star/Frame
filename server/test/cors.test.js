@@ -42,6 +42,22 @@ describe("CORS Origin Validation & Preflight Regression Tests", () => {
     }
   });
 
+  test("getAllowedOrigins restricts default localhost origins when NODE_ENV is production", () => {
+    const originalEnv = process.env.CLIENT_URL;
+    const originalNodeEnv = process.env.NODE_ENV;
+    process.env.NODE_ENV = "production";
+    delete process.env.CLIENT_URL;
+    try {
+      const origins = getAllowedOrigins();
+      assert.ok(origins.includes("https://frame-alpha-six.vercel.app"));
+      assert.equal(origins.includes("http://localhost:5173"), false);
+      assert.equal(origins.includes("http://localhost:3000"), false);
+    } finally {
+      process.env.CLIENT_URL = originalEnv;
+      process.env.NODE_ENV = originalNodeEnv;
+    }
+  });
+
   test("https://frame-alpha-six.vercel.app is allowed with credentials and proper CORS headers", async () => {
     const res = await request(app)
       .get("/api/health")

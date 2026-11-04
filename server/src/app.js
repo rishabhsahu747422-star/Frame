@@ -28,10 +28,12 @@ export const normalizeOrigin = (origin) => {
 
 // Retrieve array of normalized allowed origins
 export const getAllowedOrigins = () => {
-  const defaultOrigins = [
+  const isProduction = process.env.NODE_ENV === "production";
+
+  // In production, default localhost origins are restricted; in development/testing they are enabled
+  const baseOrigins = [
     "https://frame-alpha-six.vercel.app",
-    "http://localhost:5173",
-    "http://localhost:3000",
+    ...(!isProduction ? ["http://localhost:5173", "http://localhost:3000"] : []),
   ];
 
   const configuredOrigins = (process.env.CLIENT_URL || "")
@@ -39,7 +41,7 @@ export const getAllowedOrigins = () => {
     .map(normalizeOrigin)
     .filter(Boolean);
 
-  return Array.from(new Set([...configuredOrigins, ...defaultOrigins.map(normalizeOrigin)]));
+  return Array.from(new Set([...configuredOrigins, ...baseOrigins.map(normalizeOrigin)]));
 };
 
 app.use(
