@@ -20,22 +20,42 @@ import { errorHandler, notFoundHandler } from "./middlewares/error.middleware.js
 
 const app = express();
 
-// CORS configuration with credentials support
-const allowedOrigins = [
-  process.env.CLIENT_URL,
-  "http://localhost:5173",
-  "http://localhost:3000",
-].filter(Boolean);
+// Normalize origin strings (strip whitespace and trailing slashes)
+export const normalizeOrigin = (origin) => {
+  if (!origin || typeof origin !== "string") return "";
+  return origin.trim().replace(/\/+$/, "");
+};
+
+// Retrieve array of normalized allowed origins
+export const getAllowedOrigins = () => {
+  const defaultOrigins = [
+    "https://frame-alpha-six.vercel.app",
+    "http://localhost:5173",
+    "http://localhost:3000",
+  ];
+
+  const configuredOrigins = (process.env.CLIENT_URL || "")
+    .split(",")
+    .map(normalizeOrigin)
+    .filter(Boolean);
+
+  return Array.from(new Set([...configuredOrigins, ...defaultOrigins.map(normalizeOrigin)]));
+};
 
 app.use(
   cors({
     origin: (origin, callback) => {
       // Allow requests with no origin (e.g. mobile apps, curl, server-to-server)
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error(`Origin ${origin} is not allowed by CORS`));
+      if (!origin) {
+        return callback(null, true);
       }
+      const allowedOrigins = getAllowedOrigins();
+      const normalizedReqOrigin = normalizeOrigin(origin);
+      if (allowedOrigins.includes(normalizedReqOrigin)) {
+        return callback(null, true);
+      }
+      // Safe rejection using cors callback protocol; avoids triggering Express HTTP 500
+      return callback(null, false);
     },
     credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
@@ -73,8 +93,8 @@ if (process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET) {
   console.warn("Google OAuth credentials omitted: Google login disabled.");
 }
 
-// Health check endpoint
-app.get("/api/health", (req, res) => {
+// Health check endpoint (supports both /api/health and /health)
+app.get(["/api/health", "/health"], (req, res) => {
   res.status(200).json({
     success: true,
     status: "healthy",
